@@ -1,1 +1,1 @@
-# Hands-on-CI-CD-for-spring-boot-application-using-Github-actions-and-AWS
+# Hands-on CI/CD for spring-boot application using GitHub actions and AWS
