@@ -27,7 +27,7 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
 
       - name: Run Tests
-          run: mvn -B test
+        run: mvn -B test
 
       - name: Analyze with SonarCloud
         run: mvn -B verify sonar:sonar -Dsonar.projectKey=sofieneBK_Hands-on-ci-cd-for-springboot-apps -Dsonar.organization=sofienebk -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
