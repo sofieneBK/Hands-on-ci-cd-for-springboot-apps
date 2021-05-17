@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Locale;
 
-@RestController("/")
+@RestController
 public class Data {
 
 
-    @GetMapping("/health")
+    @GetMapping("/")
     public String health() {
         return "HEALTH CHECK OK!";
     }
