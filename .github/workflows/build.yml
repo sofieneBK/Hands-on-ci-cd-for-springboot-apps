@@ -39,27 +39,27 @@ jobs:
         run: mvn -B package --file pom.xml
 
       - name: Upload JAR
-          uses: actions/upload-artifact@v2
-          with:
-            name: artifact
-            path: target/data-0.0.1-SNAPSHOT.jar
+        uses: actions/upload-artifact@v2
+        with:
+          name: artifact
+          path: target/data-0.0.1-SNAPSHOT.jar
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Download JAR
-          uses: actions/download-artifact@v2
-          with:
-            name: artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: artifact
       - name: Deploy to EB
-          uses: einaregilsson/beanstalk-deploy@v13
-          with:
-            aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
-            aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-            aws_session_token: ${{ secrets.AWS_SESSION_TOKEN }}
-            application_name: spring-java-11
-            environment_name: Springjava11-env
-            version_label: ${{github.SHA}}
-            region: us-east-1
-            deployment_package: data-0.0.1-SNAPSHOT.jar
+        uses: einaregilsson/beanstalk-deploy@v13
+        with:
+          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_session_token: ${{ secrets.AWS_SESSION_TOKEN }}
+          application_name: spring-java-11
+          environment_name: Springjava11-env
+          version_label: ${{github.SHA}}
+          region: us-east-1
+          deployment_package: data-0.0.1-SNAPSHOT.jar
