@@ -92,6 +92,7 @@ jobs:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_session_token: ${{ secrets.AWS_SESSION_TOKEN }}
+          use_existing_version_if_available: false
           application_name: spring-java-11
           environment_name: Springjava11-env
           version_label: ${{github.SHA}}
