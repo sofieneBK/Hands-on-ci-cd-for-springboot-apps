@@ -48,4 +48,4 @@ jobs:
           environment_name: Springjava11-env
           version_label: ${{github.SHA}}
           region: us-east-1
-          deployment_package: data-0.0.1-SNAPSHOT.jar
+          deployment_package: target/data-0.0.1-SNAPSHOT.jar
