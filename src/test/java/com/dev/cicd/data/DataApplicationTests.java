@@ -12,7 +12,7 @@ class DataApplicationTests {
 
 	// Test class added ONLY to cover main() invocation not covered by application tests.
 	@Test
-	public void applicationContextTest() {
+	void applicationContextTest() {
 		DataApplication.main(new String[] {});
 	}
 }
