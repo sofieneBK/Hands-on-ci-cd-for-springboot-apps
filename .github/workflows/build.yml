@@ -76,3 +76,24 @@ jobs:
         with:
           name: artifact
           path: target/data-0.0.1-SNAPSHOT.jar
+  deploy:
+    needs: build
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download JAR
+        uses: actions/download-artifact@v2
+        with:
+          name: artifact
+      - name: Deploy to EB
+        uses: einaregilsson/beanstalk-deploy@v13
+        with:
+          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_session_token: ${{ secrets.AWS_SESSION_TOKEN }}
+          use_existing_version_if_available: false
+          application_name: spring-boot-deploy
+          environment_name: Springbootdeploy-env
+          version_label: ${{github.SHA}}
+          region: us-east-1
+          deployment_package: data-0.0.1-SNAPSHOT.jar
