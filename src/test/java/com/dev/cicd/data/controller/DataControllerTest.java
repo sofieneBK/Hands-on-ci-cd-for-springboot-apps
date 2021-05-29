@@ -25,7 +25,7 @@ class DataControllerTest {
     @Test
     void nationsLength() {
         Integer nationsLength = dataController.getRandomNations().size();
-        assertEquals( 10, nationsLength);
+        assertEquals(10, nationsLength);
     }
 
     @Test
