@@ -118,7 +118,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: artifact
-        #Deploy the artifact (JAR) into AWS Beanstalk
+      #Deploy the artifact (JAR) into AWS Beanstalk
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v13
         with:
